@@ -152,6 +152,15 @@ git pull # 拉取最新代码
 
 所有的 make 指令均在 difftest 目录下执行，如 `make verilog`，`make lab1`，`make trace_lab1` 等
 
+部分实验存在多个测例，此时 trace.fst 文件需手动生成，在 difftest 目录下使用以下命令手动生成 CPU 波形文件
+
+```bash
+make trace TESTBIN_DIR=<测例对应的bin文件的路径>
+
+# 如在 difftest 目录下输入以下命令可生成CPU运行 am-tests/add.bin 测例的波形
+make trace TESTBIN_DIR=./test/bin/am-tests/add.bin
+```
+
 ## 📢 注意事项
 
 - 编程位置位于 chisel 中

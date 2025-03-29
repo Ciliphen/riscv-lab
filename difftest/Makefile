@@ -3,6 +3,7 @@ SRC_DIR  := ./core
 SRC_FILE := $(shell find $(SRC_DIR) -name '*.svh') $(shell find $(SRC_DIR) -name '*.h') $(shell find $(SRC_DIR) -name '*.v') $(shell find $(SRC_DIR) -name '*.sv')
 CHISEL_DIR = ../chisel
 BUILD_DIR = $(CHISEL_DIR)/build
+TESTBIN_DIR = ./test/bin/am-tests/add.bin
 
 .PHONY: clean
 
@@ -17,6 +18,10 @@ envtest:
 verilog:
 	$(MAKE) -C $(CHISEL_DIR) verilog
 	cp $(CHISEL_DIR)/build/PuaCpu.v $(SRC_DIR)
+
+trace: obj_dir/V$(TOP_NAME)
+	$(call git_commit, "trace") # DO NOT REMOVE THIS LINE!!!
+	./obj_dir/V$(TOP_NAME) $(TESTBIN_DIR) -rvtest -trace 10000000 -pc
 
 test:
 	$(MAKE) -C $(CHISEL_DIR) test

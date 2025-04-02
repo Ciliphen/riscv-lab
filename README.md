@@ -49,6 +49,10 @@
 
 ## 🛠️ 环境配置
 
+- 以下配置流程在 Ubuntu22.04 以及 WSL2 的 Ubuntu22.04 版本下得到验证，可顺利执行
+- 对于 Mac 用户，可使用 brew 工具直接安装对应的工具（由于 brew 安装的 Mill 的版本较新，需将 chisel/build.sc 的内容替换为 [chisel-playground/build.mill](https://github.com/OSCPU/chisel-playground/blob/master/build.mill) 中的内容以解决环境构建问题）
+- 推荐使用 Ubuntu22.04 版本进行实验，对于其他环境出现的问题请先自己尝试解决
+
 ### 🍕 安装 Verilator
 
 ```bash
@@ -157,8 +161,8 @@ git pull # 拉取最新代码
 ```bash
 make trace TESTBIN_DIR=<测例对应的bin文件的路径>
 
-# 如在 difftest 目录下输入以下命令可生成CPU运行 am-tests/add.bin 测例的波形
-make trace TESTBIN_DIR=./test/bin/am-tests/add.bin
+# 如在 difftest 目录下输入以下命令可生成CPU运行 am-tests/01-add-longlong.bin 测例的波形
+make trace TESTBIN_DIR=./test/bin/am-tests/01-add-longlong.bin
 ```
 
 ## 📢 注意事项

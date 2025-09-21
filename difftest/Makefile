@@ -1,5 +1,5 @@
 TOP_NAME := top
-SRC_DIR  := ./core
+SRC_DIR  := ../chisel/playground
 SRC_FILE := $(shell find $(SRC_DIR) -name '*.svh') $(shell find $(SRC_DIR) -name '*.h') $(shell find $(SRC_DIR) -name '*.v') $(shell find $(SRC_DIR) -name '*.sv')
 CHISEL_DIR = ../chisel
 BUILD_DIR = $(CHISEL_DIR)/build
@@ -10,10 +10,6 @@ TESTBIN_DIR = ./test/bin/am-tests/add.bin
 obj_dir/V$(TOP_NAME): src/* $(SRC_FILE)
 	verilator --cc -Wno-fatal --exe --trace-fst --trace-structs -LDFLAGS "-lpthread" --build src/sim_mycpu.cpp $(SRC_FILE) -I$(SRC_DIR) --top $(TOP_NAME) -j `nproc`
 
-verilog:
-	$(MAKE) -C $(CHISEL_DIR) verilog
-	cp $(CHISEL_DIR)/build/PuaCpu.v $(SRC_DIR)
-
 trace: obj_dir/V$(TOP_NAME)
 	$(call git_commit, "trace") # DO NOT REMOVE THIS LINE!!!
 	./obj_dir/V$(TOP_NAME) $(TESTBIN_DIR) -rvtest -trace 10000000 -pc
@@ -23,7 +19,6 @@ test:
 
 clean:
 	rm -rf obj_dir
-	rm -rf core/PuaCpu.v
 
 perf: obj_dir/V$(TOP_NAME)
 	$(call git_commit, "perf test RTL") # DO NOT REMOVE THIS LINE!!!

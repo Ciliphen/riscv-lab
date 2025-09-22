@@ -10,7 +10,7 @@
 
 ```
 
-# 🚀 [RISCV-LAB](https://code.educoder.net/ppg69fuwb/riscv-lab)
+# 🚀 [RISCV-LAB](https://github.com/Ciliphen/riscv-lab)
 
 从零开始的 RV64IMAZicsr_Zifencei 流水线设计实验
 
@@ -28,19 +28,9 @@
 ├── .gitignore # 用于配置Git忽略文件
 ├── .vscode # 用于配置VSCode编辑器
 ├── README.md # 项目说明文档
-├── chisel # Chisel代码
-│ ├── .bloop # 用于配置Bloop编译器
+├── verilog # verilog代码
 │ ├── .gitignore # 用于配置Git忽略文件
-│ ├── .metals # 用于配置Metals编译器
-│ ├── .scalafmt.conf # 用于配置Scalafmt代码格式化工具
-│ ├── .vscode # 用于配置VSCode编辑器
-│ ├── Makefile # 用于配置Make编译工具
-│ ├── README.md # 项目说明文档
-│ ├── build # 用于存储Chisel生成的Verilog文件
-│ ├── build.sc # 用于配置Mill编译工具
-│ ├── out # 用于存储mill编译后的文件
 │ ├── playground # 用于存储CPU设计相关的Verilog文件
-│ └── utils # 用于存储firtool相关的文件
 ├── difftest # 差分测试框架
 ```
 
@@ -127,7 +117,7 @@ make trace TESTBIN_DIR=./test/bin/am-tests/01-add-longlong.bin
 
 ## 📢 注意事项
 
-- 编程位置位于 chisel 中
+- 编程位置位于 verilog 中
 - 测试位置位于 difftest 中
 - 进入 difftest 目录后
   - 使用 `make lab1` 进行 实验 1 的测试（首次实验需要按实验要求补充代码，否则会报错）
@@ -140,4 +130,3 @@ make trace TESTBIN_DIR=./test/bin/am-tests/01-add-longlong.bin
 ## 📦 资源
 
 - 🧰[RISC-V Convertor](https://luplab.gitlab.io/rvcodecjs/) - RISC-V 汇编转换器
-- 📑[Chisel Project Template](https://github.com/OSCPU/chisel-playground) - Chisel 项目模板

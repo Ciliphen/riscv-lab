@@ -10,7 +10,7 @@
 
 ```
 
-# 🚀 [RISCV-LAB](https://code.educoder.net/ppg69fuwb/riscv-lab)
+# 🚀 [RISCV-LAB](https://github.com/Ciliphen/riscv-lab)
 
 从零开始的 RV64IMAZicsr_Zifencei 流水线设计实验
 
